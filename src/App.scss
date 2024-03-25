@@ -1,0 +1,156 @@
+// Variables
+$color-grey: #eee;
+$color-grey-light: #f5f5f5;
+$color-primary: #ffab00;
+$radius: 3px;
+
+/* Estilos para o Título e Introdução */
+.form-header {
+  background-color: #f8f9fa; /* Um fundo suave */
+  padding: 20px 15px; /* Preenchimento para respirar */
+  border-radius: 5px; /* Bordas levemente arredondadas */
+  text-align: center; /* Centraliza o texto */
+  margin-bottom: 2rem; /* Espaçamento antes do formulário começar */
+}
+
+.form-title {
+  margin: 0 0 10px 0; /* Espaço abaixo do título */
+  color: #007bff; /* Cor vibrante para o título, ajuste conforme sua paleta */
+  font-size: 24px; /* Tamanho do texto */
+}
+
+.form-introduction {
+  margin: 0; /* Remove margens padrão */
+  color: #495057; /* Uma cor mais suave para o texto */
+  font-size: 16px; /* Tamanho adequado para leitura fácil */
+  line-height: 1.5; /* Espaçamento da linha para melhor legibilidade */
+}
+
+// Function
+@function remy($value, $base: 16px) {
+  @return ($value / $base) * 1rem;
+}
+
+// Mixins
+@mixin transition($prop: all, $duration: .25s, $timing: cubic-bezier(.4,0,1,1)) {
+  transition: $prop $duration $timing;
+}
+.form-title {
+  text-align: center;
+  color: #333; /* Ou a cor que se alinha com a paleta de cores da sua marca */
+  margin-bottom: 1rem;
+}
+
+.form-introduction {
+  text-align: justify;
+  margin-bottom: 2rem;
+  color: #666; /* Cor mais suave para o texto de introdução */
+  padding: 0 20px; /* Adiciona um pouco de padding para não tocar as bordas do formulário */
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  font: 100% 'Roboto', arial, sans-serif;
+  background: $color-grey-light;
+}
+
+form {
+  padding: remy(32px);
+  margin-top: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: remy(380px);
+  background-color: #fff;
+  border-radius: $radius;
+  box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07);
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 3.236rem;
+  text-align: center;
+  font-size: 1.618rem;
+}
+
+.form-group {
+  padding: 0;
+  border: 0;
+  
+  & + & {
+    margin-top: 1rem;
+  }
+}
+
+label {
+  display: inline-block;
+  margin-bottom: .5rem;
+  font-size: .75rem;
+  text-transform: uppercase;
+  touch-action: manipulation;
+}
+
+input,
+textarea {
+  display: block;
+  padding: .5rem .75rem;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #55595c;
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid $color-grey;
+  border-left: 0;
+  border-radius: $radius;
+  @include transition;
+  
+  &:focus {
+    outline: 0;
+    border-bottom-color: $color-primary;
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+.btn {
+  display: inline-block;
+  padding: .75rem 1rem;
+  margin-top: 1.618rem;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-color: $color-primary;
+  border: 1px solid transparent;
+  box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07);
+  cursor: pointer;
+  user-select: none;
+  @include transition;
+  
+  &:focus,
+  &:hover {
+    background-color: lighten($color-primary, 13%);
+    box-shadow: 0 18px 35px rgba(50,50,93,.1),0 8px 15px rgba(0,0,0,.07);
+  }
+  
+  &:focus {
+    outline: 0;
+  }
+}
