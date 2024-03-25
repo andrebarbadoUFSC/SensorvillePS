@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Formulário de Aplicação para Vaga de Emprego na Sensorville
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma aplicação web simples que visa coletar informações de candidatos interessados em se juntar à equipe da Sensorville. O formulário inclui campos para informações pessoais, acadêmicas e profissionais, além de permitir o upload de um currículo.
 
-## Available Scripts
+## Recursos Utilizados
 
-In the project directory, you can run:
+- React JS
+- React Select (para campos de seleção personalizados)
+- React DatePicker (para seleção de datas)
+- Google Apps Script (para processamento e armazenamento de formulários)
+- Google Drive (para armazenamento de currículos)
 
-### `npm start`
+## Estrutura do Projeto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O projeto é estruturado da seguinte forma:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- `src/components/`: Pasta contendo os componentes React utilizados no formulário.
+  - `ReactForm.js`: Componente principal que renderiza o formulário.
+  - `ReactFormLabel.js`: Componente auxiliar para renderizar labels dos campos de forma dinâmica.
+- `public/`: Pasta contendo arquivos estáticos, como o `index.html`.
+- `styles/`: Pasta contendo arquivos de estilo CSS.
+- `README.md`: Este arquivo.
 
-### `npm test`
+## Configuração Inicial
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para rodar este projeto localmente, siga estes passos:
 
-### `npm run build`
+1. Clone o repositório para sua máquina local:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+git clone https://github.com/seuusuario/seuprojeto.git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+csharp
+Copy code
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Navegue até a pasta do projeto e instale as dependências:
 
-### `npm run eject`
+cd seuprojeto
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+markdown
+Copy code
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Inicie o servidor de desenvolvimento:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+markdown
+Copy code
 
-## Learn More
+O projeto estará rodando no `localhost:3000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Como Usar
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Preencha os campos do formulário com suas informações pessoais e profissionais. Selecione a data de nascimento usando o date picker, escolha o curso de interesse e faça upload do seu currículo. Após preencher todos os campos, clique em "Enviar".
 
-### Code Splitting
+## Contribuindo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Se você tiver sugestões para melhorar este projeto, suas contribuições são bem-vindas. Para contribuir:
 
-### Analyzing the Bundle Size
+1. Faça um Fork do projeto.
+2. Crie uma Branch para sua Feature (`git checkout -b feature/SuaFeature`).
+3. Faça commit de suas mudanças (`git commit -m 'Adicionado alguma feature'`).
+4. Faça Push para a Branch (`git push origin feature/SuaFeature`).
+5. Abra um Pull Request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Licença
 
-### Making a Progressive Web App
+Este projeto está licenciado sob a Licença MIT - veja o arquivo `LICENSE.md` para mais detalhes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
