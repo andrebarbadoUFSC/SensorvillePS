@@ -47,6 +47,74 @@ O projeto estará rodando no `localhost:3000`.
 
 Preencha os campos do formulário com suas informações pessoais e profissionais. Selecione a data de nascimento usando o date picker, escolha o curso de interesse e faça upload do seu currículo. Após preencher todos os campos, clique em "Enviar".
 
+# Google Sheets
+
+# Integração Formulário - Google Sheets via Google Apps Script
+
+Este projeto integra um formulário web diretamente a uma planilha do Google Sheets utilizando Google Apps Script, permitindo a coleta automática de submissões de formulário em uma planilha centralizada.
+
+## Visão Geral
+
+O script do Google Apps é utilizado para criar um serviço web que escuta por requisições POST contendo dados de submissão de um formulário. Quando uma submissão é recebida, o script processa os dados e os insere em uma planilha do Google Sheets, incluindo detalhes como nome completo, data de nascimento, celular, matrícula, email, curso selecionado e um link para o arquivo enviado (por exemplo, currículo).
+
+## Planilha
+
+A planilha que armazena os dados de submissão pode ser acessada aqui: [Planilha de Submissões](https://docs.google.com/spreadsheets/d/1ZoKOdCMM-_Gd9JsrEbokqqL1z_oX2phWTEJ0ybgZC8g/edit?usp=sharing)
+
+## Código do Script
+
+O seguinte código do Google Apps Script é utilizado para processar as submissões do formulário:
+
+```javascript
+
+
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = JSON.parse(e.postData.contents);
+
+  var now = new Date();
+  var formattedDate = Utilities.formatDate(now, Session.getScriptTimeZone(), "yyyy-MM-dd HH:mm:ss");
+
+  var newRow = sheet.appendRow([
+    formattedDate,
+    data.nomeCompleto,
+    data.dataNascimento,
+    data.celular,
+    data.matricula,
+    data.email,
+    data.curso,
+    // A coluna para o URL do arquivo será adicionada posteriormente
+  ]);
+
+  if (data.arquivoMatricula) {
+    var folderId = '1NLnIYvX_lV1uulHn2r3aSjCBUdIJed2m';
+    var folder = DriveApp.getFolderById(folderId);
+    var decodedData = Utilities.base64Decode(data.arquivoMatricula.split(",")[1]);
+    var contentType = data.arquivoMatricula.split(",")[0].split(":")[1].split(";")[0];
+    var blob = Utilities.newBlob(decodedData, contentType, "arquivoUpload.pdf");
+    var file = folder.createFile(blob);
+
+    sheet.getRange(sheet.getLastRow(), 8).setValue(file.getUrl());
+  }
+
+  return ContentService.createTextOutput(JSON.stringify({"result":"success"})).setMimeType(ContentService.MimeType.JSON);
+}
+
+```
+
+## Como Utilizar
+
+1. Crie um novo Google Apps Script associado à sua planilha do Google Sheets.
+2. Copie e cole o código acima no editor de script.
+3. Salve e publique o script como um serviço web.
+4. Utilize a URL fornecida pelo Google Apps Script como endpoint para as submissões do seu formulário.
+
+## Notas
+
+- Certifique-se de ajustar o folderId para o ID da pasta do Google Drive onde você deseja armazenar os arquivos enviados.
+- O script atual espera que os dados do formulário sejam enviados em formato JSON, incluindo o arquivo em base64 se aplicável.
+
+
 ## Contribuindo
 
 Se você tiver sugestões para melhorar este projeto, suas contribuições são bem-vindas. Para contribuir:
