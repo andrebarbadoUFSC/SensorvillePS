@@ -37,15 +37,9 @@ Copy code
 cd seuprojeto
 npm install
 
-markdown
-Copy code
-
 3. Inicie o servidor de desenvolvimento:
 
 npm start
-
-markdown
-Copy code
 
 O projeto estará rodando no `localhost:3000`.
 
