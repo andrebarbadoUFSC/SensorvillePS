@@ -23,25 +23,29 @@ O projeto é estruturado da seguinte forma:
 
 ## Configuração Inicial
 
-Para rodar este projeto localmente, siga estes passos:
+### Pré-requisitos
 
-1. Clone o repositório para sua máquina local:
+Antes de prosseguir, certifique-se de ter o Node.js e o npm instalados em sua máquina. Você pode baixá-los e instalá-los em [Node.js website](https://nodejs.org/en/download).
 
-git clone https://github.com/seuusuario/seuprojeto.git
+### Instalação
 
-csharp
-Copy code
+1. Clone este repositório para sua máquina local:
 
-2. Navegue até a pasta do projeto e instale as dependências:
+   ```bash
+   git clone https://github.com/andrebarbadoUFSC/SensorvillePS.git
+   ```
 
-cd seuprojeto
-npm install
+2. Navegue até a pasta do projeto:
 
-3. Inicie o servidor de desenvolvimento:
+   ```bash
+   cd SensorvillePS
+   ```
 
-npm start
+3. Instale as dependências do projeto usando npm:
 
-O projeto estará rodando no `localhost:3000`.
+   ```bash
+   npm install
+   ```
 
 ## Como Usar
 
