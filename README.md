@@ -47,6 +47,14 @@ Antes de prosseguir, certifique-se de ter o Node.js e o npm instalados em sua m�
    npm install
    ```
 
+4. dentro da pasta inicialize o npm e o site deve inicializar em seu navegador padrao. 
+
+   ```bash
+   npm start 
+   ```
+
+
+
 ## Como Usar
 
 Preencha os campos do formulário com suas informações pessoais e profissionais. Selecione a data de nascimento usando o date picker, escolha o curso de interesse e faça upload do seu currículo. Após preencher todos os campos, clique em "Enviar".
